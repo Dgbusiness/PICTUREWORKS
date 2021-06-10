@@ -17,3 +17,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [UserController::class, 'getUserById'])->name('index');
 
 Route::get('user/{id}', [UserController::class, 'getUserById'])->name('user.show');
+Route::post('user', [UserController::class, 'appendCommentsById'])->name('user.update');

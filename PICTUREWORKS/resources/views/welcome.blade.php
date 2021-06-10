@@ -22,6 +22,7 @@
         </style>
     </head>
     <body class="is-preload">
+        @include('inc.messages')
         <div id="wrapper">
             <section id="main">
                 <header>
