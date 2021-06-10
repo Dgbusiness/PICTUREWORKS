@@ -32,7 +32,7 @@ class UserController extends Controller
         ]);
 
         $user = User::find($request->id);
-        if ($user->password != $request->password) {
+        if (strtoupper($user->password) != $request->password) {
             return view('welcome', compact('user'))->with('error', 'Incorrect password');
         }
 
@@ -43,7 +43,7 @@ class UserController extends Controller
     }
 
     /**
-     * This function POST comments of the user with the $id
+     * This function POST comments but receives data in JSON format of the user with the $id
      * @param Request $request
      * @return model $user
      */
@@ -57,7 +57,7 @@ class UserController extends Controller
         $jsonRequest = $request;
 
         $user = User::find($jsonRequest->id);
-        if ($user->password != $jsonRequest->password) {
+        if (strtoupper($user->password) != $jsonRequest->password) {
             return view('welcome', compact('user'))->with('error', 'Incorrect password');
         }
 
