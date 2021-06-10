@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>User Card - {{ $user->name?? 'None' }}</title>
+        <title>User Card - {{ $user->name }}</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -25,9 +25,9 @@
         <div id="wrapper">
             <section id="main">
                 <header>
-                    <span class="avatar"><img src="images/users/<?='$user->id'?>.jpg" alt="" /></span>
-                    <h1><?='$user->name'?></h1>
-                    <p><?=nl2br('$user->comments')?></p>
+                    <span class="avatar"><img src="{{ asset('images/users/'.$user->id.'.jpg') }}" alt="" /></span>
+                    <h1>{{ $user->name }}</h1>
+                    <p>{{ nl2br($user->comments) }}</p>
                 </header>
             </section>
             <footer id="footer">
