@@ -15,12 +15,19 @@ class UserTest extends TestCase
      */
     public function test_example()
     {
-        $response = $this->post('/user', array(
+        $response1 = $this->post('/user', array(
             'id' => 1,
-            'password' => '720DF6C282218518FA20FDC52D4DED7ECC043AB',
-            'comments' => 'Testing this fucntion'
+            'password' => '720DF6C2482218518FA20FDC52D4DED7ECC043AB',
+            'comments' => 'Testing this function'
         ));
 
-        $response->assertStatus(200);
+        $response2 = $this->postJson('/json/user', array(
+            'id' => 2,
+            'password' => '720DF6C2482218518FA20FDC52D4DED7ECC043AB',
+            'comments' => 'Testing this JSON function'
+        ));
+
+        $response1->assertStatus(200);
+        $response2->assertStatus(200);
     }
 }

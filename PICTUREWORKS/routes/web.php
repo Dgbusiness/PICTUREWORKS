@@ -18,3 +18,4 @@ Route::get('/', [UserController::class, 'getUserById'])->name('index');
 
 Route::get('user/{id}', [UserController::class, 'getUserById'])->name('user.show');
 Route::post('user', [UserController::class, 'appendCommentsById'])->name('user.update');
+Route::post('json/user', [UserController::class, 'appendCommentsByIdJSON'])->name('user.json.update');
